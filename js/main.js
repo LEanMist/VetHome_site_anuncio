@@ -134,3 +134,33 @@ serviceDialog.addEventListener("close", () => {
   previouslyFocusedCard?.focus();
   previouslyFocusedCard = null;
 });
+
+const reviewSources = [...document.querySelectorAll(".review-platform")].map((platform) => ({
+  platform,
+  rating: Number(platform.dataset.rating),
+  count: Number(platform.dataset.count)
+}));
+
+if (reviewSources.length === 0 || reviewSources.some(({ rating, count }) => (
+  !Number.isFinite(rating) || rating < 0 || rating > 5 || !Number.isInteger(count) || count < 1
+))) {
+  throw new Error("Os dados de nota e quantidade das avaliações externas são inválidos.");
+}
+
+const externalReviewCount = reviewSources.reduce((total, source) => total + source.count, 0);
+const externalRating = reviewSources.reduce((total, source) => total + source.rating * source.count, 0) / externalReviewCount;
+const roundedExternalRating = Math.round(externalRating * 10) / 10;
+
+document.querySelector("#combined-rating").textContent = roundedExternalRating.toLocaleString("pt-BR", {
+  minimumFractionDigits: 1,
+  maximumFractionDigits: 1
+});
+document.querySelector("#combined-review-count").textContent = externalReviewCount.toLocaleString("pt-BR");
+
+reviewSources.forEach(({ platform, rating, count }) => {
+  platform.querySelector(".source-rating").textContent = `${rating.toLocaleString("pt-BR", {
+    minimumFractionDigits: 1,
+    maximumFractionDigits: 1
+  })} de 5`;
+  platform.querySelector(".source-count").textContent = `${count.toLocaleString("pt-BR")} avaliações`;
+});
