@@ -29,24 +29,27 @@
             <span>NOSSOS SERVIÇOS</span>
           </div>
           <div class="services" id="services" aria-label="Serviços">
-            <article class="service-card">
+            <button class="service-card" type="button" data-service="home-care" aria-haspopup="dialog" aria-controls="service-dialog">
               <div class="service-image">
-                <img src="images/atendimento_domiciliar.jpg" alt="Veterinária realizando atendimento em casa">
+                <img src="images/atendimento_domiciliar.jpg" alt="">
               </div>
-              <p class="service-name">Atendimento a domicílio</p>
-            </article>
-            <article class="service-card">
+              <span class="service-name">Atendimento a domicílio</span>
+              <span class="card-action">Toque para saber mais</span>
+            </button>
+            <button class="service-card" type="button" data-service="exams" aria-haspopup="dialog" aria-controls="service-dialog">
               <div class="service-image">
-                <img src="images/exames.jpg" alt="Veterinária examinando um gato em casa">
+                <img src="images/exames.jpg" alt="">
               </div>
-              <p class="service-name">Exames</p>
-            </article>
-            <article class="service-card">
+              <span class="service-name">Exames</span>
+              <span class="card-action">Toque para saber mais</span>
+            </button>
+            <button class="service-card" type="button" data-service="vaccines" aria-haspopup="dialog" aria-controls="service-dialog">
               <div class="service-image">
-                <img src="images/vacinas.jpg" alt="Veterinária aplicando vacina em um cachorro">
+                <img src="images/vacinas.jpg" alt="">
               </div>
-              <p class="service-name">Vacinas</p>
-            </article>
+              <span class="service-name">Vacinas</span>
+              <span class="card-action">Toque para saber mais</span>
+            </button>
           </div>
         </div>
       </div>
@@ -70,5 +73,111 @@
       </div>
     </section>
   </main>
+  <dialog class="service-dialog" id="service-dialog" aria-labelledby="dialog-title">
+    <div class="dialog-header">
+      <div class="dialog-title-group">
+        <div class="dialog-title-copy">
+          <p class="eyebrow">VET HOME</p>
+          <h2 id="dialog-title">Detalhes do serviço</h2>
+        </div>
+        <div class="dialog-pet-icons" aria-label="Atendimento para cães e gatos">
+          <img src="images/GatoPreto.png" alt="Gato">
+          <img src="images/CachorroPreto.png" alt="Cachorro">
+        </div>
+      </div>
+      <button class="dialog-close" type="button" aria-label="Fechar detalhes">×</button>
+    </div>
+    <div class="dialog-content" id="dialog-content"></div>
+  </dialog>
+
+  <template id="home-care-details">
+    <p class="dialog-lead">Atendimento veterinário na sua casa, com mais conforto para o pet e para a família.</p>
+    <section class="detail-group">
+      <h3>Quais animais atendemos?</h3>
+      <p>Atendemos cães e gatos.</p>
+    </section>
+    <section class="detail-group">
+      <h3>Como funciona?</h3>
+      <ol>
+        <li>Você agenda pelo aplicativo. Vamos adicionar aqui o passo a passo de agendamento quando ele estiver definido.</li>
+        <li>Informe se o atendimento é para cão ou gato e conte o motivo da consulta.</li>
+        <li>A equipe combina a visita e o veterinário avalia o animal em casa.</li>
+      </ol>
+    </section>
+    <p class="detail-note">O que pode ser feito depende da avaliação do veterinário e da necessidade do animal. Em uma emergência, procure atendimento veterinário imediatamente.</p>
+  </template>
+
+  <template id="exams-details">
+    <p class="dialog-lead">Os exames ajudam o veterinário a investigar sintomas, acompanhar a saúde e orientar o tratamento. O resultado sempre é interpretado junto com a avaliação do animal.</p>
+    <div class="detail-list">
+      <section class="detail-group">
+        <h3>Hemograma</h3>
+        <p>Analisa as células do sangue: glóbulos vermelhos, glóbulos brancos e plaquetas. Ajuda a investigar anemia, inflamação, infecções e alterações de coagulação. É feita uma coleta de sangue; pode causar apenas um incômodo breve ou pequeno hematoma.</p>
+      </section>
+      <section class="detail-group">
+        <h3>Ureia e creatinina</h3>
+        <p>São medidas no sangue e ajudam a avaliar a função dos rins, sempre junto de outros dados, como hidratação e exame de urina. A coleta é rápida e pode causar um desconforto passageiro.</p>
+      </section>
+      <section class="detail-group">
+        <h3>ALT (TGP), GGT e fosfatase alcalina</h3>
+        <p>São substâncias avaliadas no sangue que ajudam a investigar alterações no fígado e nas vias biliares. Elas não fecham um diagnóstico sozinhas: o veterinário considera sintomas, histórico e outros exames. É necessária uma coleta de sangue.</p>
+      </section>
+      <section class="detail-group">
+        <h3>Colesterol e triglicerídeos</h3>
+        <p>Avaliam tipos de gordura no sangue e podem ajudar a investigar alterações metabólicas ou acompanhar algumas condições de saúde. A amostra é coletada por punção; o veterinário orienta se é necessário algum preparo.</p>
+      </section>
+      <section class="detail-group">
+        <h3>Urina tipo 1</h3>
+        <p>Avalia concentração, acidez e componentes da urina, além de células e cristais ao microscópio. Ajuda a investigar alterações urinárias e complementa a avaliação dos rins. A amostra pode ser coletada naturalmente ou pelo veterinário com técnica apropriada; a forma escolhida depende do caso.</p>
+      </section>
+      <section class="detail-group">
+        <h3>Exame coproparasitológico</h3>
+        <p>Analisa uma amostra de fezes para procurar ovos, cistos ou outros sinais de parasitas intestinais. Em geral, basta coletar as fezes em um recipiente limpo; o exame não causa desconforto ao animal.</p>
+      </section>
+    </div>
+    <p class="detail-note">A coleta de sangue pode causar dor leve e passageira. O exame em si não trata nem causa efeitos no organismo; qualquer preparo ou coleta especial será explicado pela equipe veterinária.</p>
+  </template>
+
+  <template id="vaccines-details">
+    <p class="dialog-lead">As vacinas treinam o sistema de defesa do animal para reconhecer doenças. A indicação e o calendário dependem da idade, saúde, histórico e rotina do pet.</p>
+    <section class="detail-group">
+      <h3>Vacinas para gatos</h3>
+      <ul>
+        <li><strong>V3:</strong> protege contra três doenças:
+          <ul>
+            <li><strong>Panleucopenia:</strong> pode causar vômitos, diarreia intensa e queda das defesas do organismo.</li>
+            <li><strong>Calicivirose:</strong> pode provocar feridas na boca e sinais respiratórios.</li>
+            <li><strong>Rinotraqueíte (herpesvírus felino):</strong> afeta principalmente olhos e vias respiratórias, causando espirros e secreção.</li>
+          </ul>
+        </li>
+        <li><strong>V4:</strong> inclui a proteção da V3 e contra clamidiose felina, que costuma causar inflamação nos olhos (conjuntivite) e pode afetar as vias respiratórias.</li>
+        <li><strong>V5:</strong> inclui as proteções da V4 e contra leucemia viral felina (FeLV), um vírus que pode enfraquecer as defesas e causar anemia ou alguns tipos de câncer. O veterinário avalia o risco de exposição e pode recomendar teste para FeLV antes de vacinar.</li>
+        <li><strong>Antirrábica:</strong> protege contra a raiva, uma doença que atinge o sistema nervoso, é quase sempre fatal e também pode ser transmitida às pessoas.</li>
+      </ul>
+    </section>
+    <section class="detail-group">
+      <h3>Vacinas para cães</h3>
+      <ul>
+        <li><strong>V8 e V10:</strong> são vacinas múltiplas. As formulações variam por fabricante, mas podem proteger contra:
+          <ul>
+            <li><strong>Cinomose:</strong> doença contagiosa que pode afetar os sistemas respiratório, digestivo e nervoso.</li>
+            <li><strong>Parvovirose:</strong> pode causar vômitos e diarreia intensa, com risco de desidratação.</li>
+            <li><strong>Adenovirose:</strong> pode causar hepatite infecciosa e afetar o fígado.</li>
+            <li><strong>Leptospirose:</strong> pode comprometer rins e fígado e também oferece risco às pessoas. V8 e V10 podem incluir diferentes variantes da bactéria.</li>
+            <li>Algumas formulações também incluem proteção contra parainfluenza, que pode participar de quadros respiratórios.</li>
+          </ul>
+          O veterinário confere a composição exata no rótulo da vacina utilizada.</li>
+        <li><strong>Antirrábica:</strong> protege contra a raiva, uma doença que atinge o sistema nervoso, é quase sempre fatal e pode ser transmitida às pessoas.</li>
+        <li><strong>Giárdia:</strong> a Giardia é um parasita intestinal que pode causar diarreia. A vacina pode ser considerada em situações específicas, mas a disponibilidade e a recomendação variam; ela não substitui higiene, diagnóstico nem tratamento, e não garante que o cão não se infecte.</li>
+        <li><strong>Vacinas contra a “gripe dos canis”:</strong> ajudam a proteger contra alguns agentes de doenças respiratórias que causam tosse, como Bordetella bronchiseptica e, em algumas formulações, parainfluenza. Existem apresentações injetáveis, orais e intranasais; a composição, a via e os reforços variam conforme o produto.</li>
+      </ul>
+    </section>
+    <section class="detail-group">
+      <h3>O que esperar depois da vacina?</h3>
+      <p>Alguns animais podem ficar mais quietos, sensíveis no local da aplicação ou ter febre baixa por pouco tempo. Inchaço no rosto, dificuldade para respirar, vômitos repetidos ou fraqueza intensa precisam de atendimento veterinário imediato. Reações importantes são incomuns.</p>
+    </section>
+    <p class="detail-note">Os nomes V3/V4/V5 e V8/V10 são usados para combinações que podem variar por fabricante. O veterinário confirma os componentes, indica as vacinas apropriadas e define os reforços para cada animal.</p>
+  </template>
+  <script src="js/main.js" defer></script>
 </body>
 </html>
