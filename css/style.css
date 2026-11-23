@@ -746,6 +746,10 @@
       background: var(--rosafundo);
     }
 
+    .all-reviews-page .section-home-link {
+      margin-top: 40px;
+    }
+
     .review-invitation {
       position: relative;
       background: #d3ef86;
@@ -1027,6 +1031,47 @@
         gap: 12px;
       }
 
+      .all-reviews-page .content-section.reviews-section {
+        min-height: 0;
+        padding: 48px 18px;
+      }
+
+      .all-reviews-page .review-card-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 12px;
+      }
+
+      .all-reviews-page .review-card {
+        min-height: 0;
+        padding: 16px;
+      }
+
+      .all-reviews-page .review-card-top {
+        flex-wrap: wrap;
+      }
+
+      .all-reviews-page .review-summary {
+        margin: 12px 0;
+        font-size: 15px;
+      }
+
+      .all-reviews-page .review-invitation {
+        padding: 0;
+      }
+
+      .all-reviews-page .review-invitation > img {
+        height: clamp(280px, 72vw, 360px);
+      }
+
+      .all-reviews-page .review-invitation-content {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: min(460px, calc(100% - 32px));
+        margin: 0;
+        transform: translate(-50%, -50%);
+      }
+
       .page {
         display: flex;
         flex-direction: column;
@@ -1090,6 +1135,38 @@
     }
 
     @media (max-width: 480px) {
+      .all-reviews-page .content-section.reviews-section {
+        padding: 40px 16px;
+      }
+
+      .all-reviews-page .content-section h2 {
+        font-size: clamp(28px, 8vw, 36px);
+      }
+
+      .all-reviews-page .review-card-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .all-reviews-page .site-reviews-more {
+        width: 100%;
+        min-height: 48px;
+      }
+
+      .all-reviews-page .site-review-delete {
+        width: 100%;
+        min-height: 44px;
+      }
+
+      .all-reviews-page .review-invitation-content {
+        padding: 20px 16px;
+      }
+
+      .all-reviews-page .review-invitation-link {
+        min-height: 44px;
+        align-items: center;
+        justify-content: center;
+      }
+
       .reviews-score {
         width: 100%;
         justify-content: center;
