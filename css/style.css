@@ -9,6 +9,7 @@
       --marrom: #68442E;
       --rosafundo: #FAD3D5;
       --card-pink: #C08081;
+      --header-height: 88px;
     }
 
     * {
@@ -45,9 +46,21 @@
       position: relative;
       isolation: isolate;
       width: 100%;
-      min-height: 100vh;
+      min-height: max(100vh, 840px);
       overflow: hidden;
       background: #c8eff0;
+    }
+
+    .page::after {
+      position: absolute;
+      z-index: 1;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      height: clamp(70px, 10vw, 130px);
+      background: linear-gradient(to bottom, transparent, #f3efeb);
+      content: "";
+      pointer-events: none;
     }
 
     .hero-image {
@@ -71,18 +84,58 @@
       object-position: center;
     }
 
-    .topbar {
+    .site-header {
       position: fixed;
       z-index: 10;
-      top: clamp(20px, 3vw, 36px);
-      right: clamp(18px, 4vw, 48px);
+      top: 0;
+      right: 0;
+      left: 0;
+      display: flex;
+      height: var(--header-height);
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      padding: 0 clamp(16px, 4vw, 48px);
+      border-bottom: 1px solid rgba(104, 68, 46, .12);
+      background: rgba(255, 250, 247, .88);
+      box-shadow: 0 4px 20px rgba(104, 68, 46, .08);
+      backdrop-filter: blur(12px);
+    }
+
+    .header-brand {
+      display: inline-flex;
+      flex-shrink: 0;
+      align-items: center;
+      gap: 10px;
       color: var(--marrom);
-      font-size: 16px;
+      font-family: "Comfortaa", "Trebuchet MS", Arial, sans-serif;
+      font-size: 20px;
+      font-weight: 700;
+      text-decoration: none;
+    }
+
+    .header-brand img {
+      width: 68px;
+      height: 68px;
+      border-radius: 50%;
+      object-fit: cover;
+    }
+
+    .topbar {
+      color: var(--marrom);
+      font-size: 20px;
       font-weight: 600;
+    }
+
+    .topbar-desktop {
+      display: flex;
+      align-items: center;
+      gap: clamp(18px, 3.2vw, 42px);
     }
 
     .topbar-menu {
       position: relative;
+      display: none;
     }
 
     .topbar-toggle {
@@ -130,7 +183,7 @@
 
     .topbar a {
       white-space: nowrap;
-      padding: 12px;
+      padding: 9px 12px;
       border: 1px solid transparent;
       border-radius: 12px;
       color: inherit;
@@ -140,11 +193,13 @@
 
     .topbar a:hover,
     .topbar a:focus-visible {
+      border-color: currentColor;
       background: var(--rosafundo);
     }
 
     .topbar-toggle:focus-visible,
     .topbar a:focus-visible,
+    .header-brand:focus-visible,
     .section-home-link:focus-visible {
       outline: 2px solid currentColor;
       outline-offset: 3px;
@@ -161,17 +216,6 @@
       background: var(--rosafundo);
       clip-path: polygon(0 0, 83% 0, 88% 8%, 93% 20%, 96% 32%, 94% 43%, 90% 52%, 92% 63%, 97% 77%, 100% 89%, 97% 100%, 0 100%);
     }
-
-    .brand-logo {
-      position: absolute;
-      top: clamp(24px, 3vw, 42px);
-      left: clamp(24px, 4vw, 56px);
-      width: clamp(104px, 11vw, 140px);
-      height: auto;
-      border-radius: 50%;
-      object-fit: contain;
-    }
-
 
     .intro {
       width: 100%;
@@ -421,8 +465,13 @@
       text-align: center;
     }
 
+    #about,
+    #reviews {
+      scroll-margin-top: var(--header-height);
+    }
+
     .about-section {
-      background: #f3efeb;
+      background: linear-gradient(to bottom, #f3efeb calc(100% - 130px), var(--rosafundo));
     }
 
     .about-profile {
@@ -686,7 +735,7 @@
       gap: 10px;
       max-width: 760px;
       margin: 32px auto;
-      scroll-margin-top: 90px;
+      scroll-margin-top: calc(var(--header-height) + 18px);
       padding: clamp(20px, 4vw, 32px);
       border-radius: 18px;
       background: #fffaf7;
@@ -925,6 +974,33 @@
       }
     }
 
+    @media (max-width: 800px) {
+      :root {
+        --header-height: 76px;
+      }
+
+      .header-brand img {
+        width: 58px;
+        height: 58px;
+      }
+
+      .topbar-desktop {
+        display: none;
+      }
+
+      .topbar-menu {
+        display: block;
+      }
+
+      .topbar {
+        font-size: 16px;
+      }
+
+      .topbar a {
+        padding: 12px;
+      }
+    }
+
     @media (max-width: 700px) {
       .review-invitation > img {
         height: auto;
@@ -956,6 +1032,7 @@
         flex-direction: column;
         aspect-ratio: auto;
         min-height: 0;
+        padding-top: var(--header-height);
       }
 
       .hero-image {
@@ -973,19 +1050,8 @@
         order: 1;
         width: 100%;
         min-height: 0;
-        padding: 142px clamp(22px, 7vw, 42px) 36px;
+        padding: 36px clamp(22px, 7vw, 42px) 80px;
         clip-path: none;
-      }
-
-      .brand-logo {
-        top: 20px;
-        left: clamp(22px, 7vw, 42px);
-        width: 104px;
-      }
-
-      .topbar {
-        top: 16px;
-        right: 14px;
       }
 
       .intro {

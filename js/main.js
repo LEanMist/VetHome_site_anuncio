@@ -4,6 +4,11 @@ const dialogContent = document.querySelector("#dialog-content");
 const closeDialogButton = document.querySelector(".dialog-close");
 const navigationMenu = document.querySelector(".topbar-menu");
 const navigationToggle = document.querySelector(".topbar-toggle");
+const desktopNavigation = window.matchMedia("(min-width: 801px)");
+
+desktopNavigation.addEventListener("change", (event) => {
+  if (event.matches) navigationMenu.open = false;
+});
 
 navigationMenu.addEventListener("click", (event) => {
   if (event.target.closest("a")) {
