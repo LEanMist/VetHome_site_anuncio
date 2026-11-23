@@ -1,6 +1,6 @@
 :root {
       color-scheme: light;
-      font-family: "Trebuchet MS", Arial, sans-serif;
+      font-family: "Montserrat Alternates", "Trebuchet MS", Arial, sans-serif;
       color: #60442f;
       background: #f3efeb;
       font-synthesis: none;
@@ -23,6 +23,22 @@
       min-width: 320px;
       min-height: 100vh;
       margin: 0;
+    }
+
+    h1,
+    h2,
+    h3,
+    .services-heading,
+    .service-name,
+    .eyebrow {
+      font-family: "Comfortaa", "Trebuchet MS", Arial, sans-serif;
+    }
+
+    h1,
+    .content-section h2,
+    .about-profile h3,
+    .services-heading {
+      -webkit-text-stroke: .35px currentColor;
     }
 
     .page {
@@ -60,19 +76,61 @@
       z-index: 10;
       top: clamp(20px, 3vw, 36px);
       right: clamp(18px, 4vw, 48px);
-      display: flex;
-      justify-content: flex-end;
-      align-items: center;
-      gap: clamp(18px, 3.2vw, 42px);
-      padding: 0;
       color: var(--marrom);
-      font-size: 20px;
+      font-size: 16px;
       font-weight: 600;
+    }
+
+    .topbar-menu {
+      position: relative;
+    }
+
+    .topbar-toggle {
+      display: flex;
+      width: 48px;
+      height: 48px;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 5px;
+      border: 1px solid rgba(104, 68, 46, .3);
+      border-radius: 14px;
+      background: #fffaf7;
+      box-shadow: 0 8px 24px rgba(104, 68, 46, .15);
+      cursor: pointer;
+      list-style: none;
+    }
+
+    .topbar-toggle::-webkit-details-marker {
+      display: none;
+    }
+
+    .topbar-toggle span {
+      width: 22px;
+      height: 2px;
+      border-radius: 2px;
+      background: var(--marrom);
+    }
+
+    .topbar-links {
+      position: absolute;
+      top: calc(100% + 10px);
+      right: 0;
+      display: grid;
+      width: 220px;
+      max-width: calc(100vw - 28px);
+      max-height: calc(100vh - 90px);
+      padding: 8px;
+      overflow-y: auto;
+      border: 1px solid rgba(104, 68, 46, .15);
+      border-radius: 16px;
+      background: #fffaf7;
+      box-shadow: 0 12px 30px rgba(104, 68, 46, .18);
     }
 
     .topbar a {
       white-space: nowrap;
-      padding: 9px 12px;
+      padding: 12px;
       border: 1px solid transparent;
       border-radius: 12px;
       color: inherit;
@@ -82,9 +140,10 @@
 
     .topbar a:hover,
     .topbar a:focus-visible {
-      border-color: currentColor;
+      background: var(--rosafundo);
     }
 
+    .topbar-toggle:focus-visible,
     .topbar a:focus-visible,
     .section-home-link:focus-visible {
       outline: 2px solid currentColor;
@@ -360,11 +419,81 @@
       place-items: center;
       padding: clamp(56px, 8vw, 112px) 24px;
       text-align: center;
-      scroll-margin-top: 20px;
     }
 
     .about-section {
       background: #f3efeb;
+    }
+
+    .about-profile {
+      margin: 40px 0 30px;
+      padding: clamp(24px, 5vw, 48px);
+      border: 1px solid rgba(104, 68, 46, .12);
+      border-radius: 24px;
+      background: #fffaf7;
+      box-shadow: 0 12px 30px rgba(104, 68, 46, .08);
+    }
+
+    .about-portrait {
+      display: block;
+      width: clamp(180px, 28vw, 240px);
+      aspect-ratio: 1;
+      margin: 0 auto 28px;
+      overflow: hidden;
+      border: 6px solid var(--rosafundo);
+      border-radius: 50%;
+    }
+
+    .about-portrait img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center top;
+      transform: scale(1.55);
+      transform-origin: 76% 35%;
+    }
+
+    .about-profile h3 {
+      margin: 0 0 12px;
+      color: var(--marrom);
+      font-size: clamp(25px, 3.5vw, 36px);
+      line-height: 1.2;
+    }
+
+    .about-profile-lead {
+      max-width: 560px;
+      margin: 0 auto 28px;
+      color: #806b5b;
+      font-size: clamp(17px, 2vw, 20px);
+      line-height: 1.5;
+    }
+
+    .about-profile-story {
+      text-align: left;
+      line-height: 1.75;
+    }
+
+    .about-profile-story p {
+      margin: 0 0 18px;
+    }
+
+    .about-profile-closing {
+      margin-top: 28px;
+      padding: 20px;
+      border-radius: 16px;
+      background: #f8e8e5;
+      line-height: 1.6;
+    }
+
+    .about-profile-closing p {
+      margin: 0;
+    }
+
+    .about-profile-closing p:first-child {
+      margin-bottom: 8px;
+      color: var(--marrom);
+      font-weight: 700;
     }
 
     .reviews-section {
@@ -431,7 +560,8 @@
       line-height: 1.5;
     }
 
-    .review-platform {
+    .review-platform,
+    .site-reviews {
       margin-top: 40px;
       text-align: left;
     }
@@ -541,6 +671,206 @@
       margin-bottom: 24px;
     }
 
+    .site-reviews-status,
+    .site-review-form-status {
+      line-height: 1.5;
+    }
+
+    .site-review-comment {
+      overflow-wrap: anywhere;
+      white-space: pre-wrap;
+    }
+
+    .site-review-form {
+      display: grid;
+      gap: 10px;
+      max-width: 760px;
+      margin: 32px auto;
+      scroll-margin-top: 90px;
+      padding: clamp(20px, 4vw, 32px);
+      border-radius: 18px;
+      background: #fffaf7;
+      box-shadow: 0 12px 24px rgba(104, 68, 46, .08);
+    }
+
+    .all-reviews-page {
+      background: var(--rosafundo);
+    }
+
+    .review-invitation {
+      position: relative;
+      background: #d3ef86;
+      text-align: center;
+    }
+
+    .review-invitation > img {
+      display: block;
+      width: 100%;
+      height: clamp(320px, 30vw, 460px);
+      object-fit: cover;
+    }
+
+    .review-invitation-content {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: min(460px, 48%);
+      padding: clamp(20px, 3vw, 36px);
+      border-radius: 20px;
+      background: rgba(255, 250, 247, .95);
+      box-shadow: 0 12px 30px rgba(39, 68, 36, .15);
+      transform: translate(-50%, -50%);
+    }
+
+    .review-invitation-content h2 {
+      margin: 0 0 12px;
+      color: var(--marrom);
+      font-size: clamp(24px, 2.5vw, 34px);
+      line-height: 1.2;
+    }
+
+    .review-invitation-content p {
+      margin: 0 0 20px;
+      line-height: 1.6;
+    }
+
+    .review-invitation-link {
+      display: inline-flex;
+      padding: 11px 20px;
+      border-radius: 12px;
+      background: var(--marrom);
+      color: #fffaf7;
+      font-weight: 700;
+      text-decoration: none;
+    }
+
+    .review-invitation-link:hover {
+      background: #4f3322;
+    }
+
+    .review-invitation-link:focus-visible {
+      outline: 3px solid var(--marrom);
+      outline-offset: 3px;
+    }
+
+    .site-review-form h4 {
+      margin: 0 0 8px;
+      font-family: "Comfortaa", "Trebuchet MS", Arial, sans-serif;
+      font-size: 22px;
+    }
+
+    .site-review-form label,
+    .rating-picker legend {
+      font-weight: 700;
+    }
+
+    .site-review-form input[type="text"],
+    .site-review-form textarea {
+      width: 100%;
+      padding: 12px;
+      border: 1px solid #bba99e;
+      border-radius: 10px;
+      background: #fff;
+      color: var(--marrom);
+      font: inherit;
+    }
+
+    .rating-picker {
+      margin: 4px 0;
+      padding: 0;
+      border: 0;
+    }
+
+    .rating-picker > div {
+      display: flex;
+      flex-direction: row-reverse;
+      justify-content: flex-end;
+    }
+
+    .rating-picker input {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      opacity: 0;
+    }
+
+    .rating-picker label {
+      padding: 2px;
+      color: #806b5b;
+      cursor: pointer;
+      font-size: 0;
+    }
+
+    .rating-picker label::before {
+      content: "\2606";
+      font-size: 36px;
+      line-height: 1.2;
+    }
+
+    .rating-picker input:checked ~ label::before,
+    .rating-picker label:hover::before,
+    .rating-picker label:hover ~ label::before {
+      content: "\2605";
+      color: #c98218;
+    }
+
+    .rating-picker input:focus-visible + label {
+      outline: 3px solid var(--marrom);
+      outline-offset: 2px;
+    }
+
+    .site-review-help {
+      margin: 4px 0;
+      color: #705d50;
+      font-size: 13px;
+      line-height: 1.5;
+    }
+
+    .site-review-form button,
+    .site-review-delete,
+    .site-reviews-more {
+      width: fit-content;
+      padding: 10px 16px;
+      border: 1px solid var(--marrom);
+      border-radius: 10px;
+      background: var(--marrom);
+      color: #fffaf7;
+      font: inherit;
+      font-weight: 700;
+      cursor: pointer;
+    }
+
+    .site-review-delete {
+      margin-top: 12px;
+      background: transparent;
+      color: var(--marrom);
+      font-size: 13px;
+    }
+
+    .site-reviews-more {
+      margin: 24px auto;
+    }
+
+    .site-reviews-more[hidden] {
+      display: none;
+    }
+
+    .site-review-form button:focus-visible,
+    .site-review-delete:focus-visible,
+    .site-reviews-more:focus-visible,
+    .site-review-form input:focus-visible,
+    .site-review-form textarea:focus-visible {
+      outline: 3px solid var(--marrom);
+      outline-offset: 3px;
+    }
+
+    .site-review-form button:disabled,
+    .site-review-delete:disabled,
+    .site-reviews-more:disabled {
+      opacity: .6;
+      cursor: wait;
+    }
+
     .content-inner {
       width: 100%;
       max-width: 760px;
@@ -584,22 +914,33 @@
       color: #fff;
     }
 
-    @media (max-width: 1000px) {
-      .topbar {
-        gap: 12px;
-        font-size: 15px;
+    @media (min-width: 701px) {
+      .about-section .content-inner {
+        max-width: 1200px;
       }
 
-      .topbar a {
-        padding: 7px 8px;
-      }
-
-      .topbar a.explore {
-        padding: 7px 12px;
+      .about-profile-story,
+      .about-profile-closing {
+        font-size: 18px;
       }
     }
 
     @media (max-width: 700px) {
+      .review-invitation > img {
+        height: auto;
+      }
+
+      .review-invitation-content {
+        position: static;
+        width: auto;
+        margin: 0 20px;
+        transform: none;
+      }
+
+      .review-invitation {
+        padding-bottom: 24px;
+      }
+
       .review-card-grid {
         grid-template-columns: repeat(2, minmax(0, 1fr));
       }
@@ -645,14 +986,6 @@
       .topbar {
         top: 16px;
         right: 14px;
-        justify-content: flex-end;
-        gap: clamp(10px, 4vw, 18px);
-        padding: 0;
-        font-size: 12px;
-      }
-
-      .topbar .explore {
-        padding: 7px 12px !important;
       }
 
       .intro {
@@ -769,15 +1102,6 @@
     }
 
     @media (max-width: 380px) {
-      .topbar {
-        gap: 10px;
-        font-size: 11px;
-      }
-
-      .topbar a {
-        padding: 6px 5px;
-      }
-
       .services {
         gap: 8px;
       }

@@ -5,15 +5,27 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#f8d5d4">
   <title>Vet Home | Cuidado para o seu pet</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@700&family=Montserrat+Alternates:wght@400;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
   <main>
     <nav class="topbar" aria-label="Menu principal">
-      <a href="#home">Home</a>
-      <a href="#about">Sobre nós</a>
-      <a href="#reviews">Avaliações</a>
-      <a href="#reviews">Explore</a>
+      <details class="topbar-menu">
+        <summary class="topbar-toggle" aria-label="Menu de navegação">
+          <span aria-hidden="true"></span>
+          <span aria-hidden="true"></span>
+          <span aria-hidden="true"></span>
+        </summary>
+        <div class="topbar-links">
+          <a href="#home">Home</a>
+          <a href="#about">Sobre</a>
+          <a href="#reviews">Avaliações</a>
+          <a href="#reviews">Explore</a>
+        </div>
+      </details>
     </nav>
 
     <section class="page" id="home" aria-label="Apresentação dos serviços Vet Home">
@@ -57,9 +69,27 @@
 
     <section class="content-section about-section" id="about" aria-labelledby="about-title">
       <div class="content-inner">
-        <p class="eyebrow">SOBRE NÓS</p>
+        <p class="eyebrow">SOBRE</p>
         <h2 id="about-title">Cuidado com carinho em cada etapa</h2>
         <p class="section-description">A Vet Home reúne atendimento a domicílio, exames e vacinas para cuidar da saúde e do bem-estar do seu pet.</p>
+        <article class="about-profile" aria-labelledby="about-profile-title">
+          <div class="about-portrait">
+            <img src="images/Doutora%20Gabriela.jpeg" alt="Dra. Maria Gabriela">
+          </div>
+          <h3 id="about-profile-title">Conheça a Dra. Maria Gabriela</h3>
+          <p class="about-profile-lead">Cuidado veterinário com carinho, conhecimento e dedicação, no conforto do seu lar.</p>
+          <div class="about-profile-story">
+            <p>Formada em Medicina Veterinária em 2019, a Dra. Maria Gabriela atua desde o início de sua carreira com atendimento veterinário domiciliar, oferecendo um cuidado individualizado, humanizado e focado no bem-estar dos animais.</p>
+            <p>Ao longo de sua trajetória, buscou aprimorar seus conhecimentos em áreas como Medicina Preventiva, Medicina Felina, Medicina Veterinária com Cannabis e Introdução à Acupuntura, ampliando as possibilidades de cuidado e acompanhamento da saúde dos pets.</p>
+            <p>Acredita que o atendimento domiciliar vai além da praticidade. Estar no ambiente familiar proporciona mais conforto e tranquilidade para o animal e seu tutor, reduzindo o estresse que pode ocorrer durante deslocamentos e consultas em ambientes desconhecidos.</p>
+            <p>Além disso, a visita domiciliar permite observar de perto o ambiente e a rotina em que o pet vive, identificando fatores que podem contribuir para uma avaliação clínica mais completa e auxiliar no diagnóstico e na prevenção de problemas de saúde.</p>
+            <p>Seu compromisso é oferecer um atendimento próximo, atencioso e responsável, respeitando as particularidades de cada animal e fortalecendo o vínculo de confiança com seus tutores.</p>
+          </div>
+          <div class="about-profile-closing">
+            <p>Seu pet merece cuidado onde se sente melhor: em casa.</p>
+            <p>Agende uma consulta e proporcione ao seu companheiro uma experiência veterinária mais tranquila e acolhedora.</p>
+          </div>
+        </article>
         <a class="section-home-link" href="#home">Voltar ao início</a>
       </div>
     </section>
@@ -68,25 +98,26 @@
       <div class="content-inner reviews-inner">
         <p class="eyebrow">A EXPERIÊNCIA DE QUEM CONFIA NA DRA. GABRIELA</p>
         <h2 id="reviews-title">Avaliações</h2>
-        <p class="section-description">Veja avaliações publicadas nos perfis da Dra. Gabriela Falcão. Cada resumo leva à página original da plataforma.</p>
+        <p class="section-description">Veja as avaliações da Dra. Gabriela Falcão nas plataformas e no nosso site.</p>
 
-        <div class="reviews-score" aria-label="Média das avaliações externas">
+        <div class="reviews-score" aria-label="Média geral das avaliações">
           <div class="reviews-score-value">
-            <strong id="combined-rating">5,0</strong>
+            <strong id="combined-rating">—</strong>
             <span>de 5</span>
           </div>
           <div class="reviews-score-details">
-            <span class="review-stars" aria-hidden="true">★★★★★</span>
-            <span><strong id="combined-review-count">196</strong> avaliações nas plataformas</span>
+            <span class="review-stars" id="combined-stars" aria-hidden="true" hidden></span>
+            <span><strong id="combined-review-count">—</strong> avaliações no total</span>
           </div>
         </div>
-        <p class="reviews-score-note">Média ponderada pelas quantidades exibidas em cada plataforma. Consulta em 16/11/2026; os dados podem mudar.</p>
+        <p class="reviews-score-note">Média ponderada pelas quantidades de avaliações da Petlove, PetLife e do nosso site. Dados das plataformas consultados em 23/11/2026: Petlove via resultado de busca e PetLife no perfil; os dados podem mudar.</p>
+        <p class="reviews-score-note" id="combined-rating-status" role="status" aria-live="polite">Calculando a média geral...</p>
 
-        <section class="review-platform" data-rating="5" data-count="177" aria-labelledby="petlove-reviews-title">
+        <section class="review-platform" data-rating="5" data-count="181" aria-labelledby="petlove-reviews-title">
           <div class="review-platform-heading">
             <div>
               <h3 id="petlove-reviews-title">Petlove</h3>
-              <p>Nota da plataforma: <strong class="source-rating">5,0 de 5</strong> · <span class="source-count">177 avaliações</span></p>
+              <p>Nota da plataforma: <strong class="source-rating">5,0 de 5</strong> · <span class="source-count">181 avaliações</span></p>
             </div>
             <a class="review-platform-link" href="https://saude.petlove.com.br/rede-credenciada/sp/sao-paulo/dra-gabriela-falcao" target="_blank" rel="noopener noreferrer">Ver avaliações na Petlove</a>
           </div>
@@ -137,6 +168,37 @@
         </section>
 
         <p class="reviews-disclaimer">Os textos acima são resumos das avaliações públicas, não citações literais. A nota e a quantidade são referências das plataformas e podem ser atualizadas por elas.</p>
+        <section class="site-reviews" aria-labelledby="site-reviews-title">
+          <div class="review-platform-heading">
+            <div>
+              <h3 id="site-reviews-title">Avaliações do nosso site</h3>
+              <p id="site-reviews-score">Carregando avaliações...</p>
+            </div>
+            <a class="review-platform-link" href="avaliacoes.html">Ver todas as avaliações</a>
+          </div>
+          <p class="site-reviews-status" id="site-reviews-status" role="status" aria-live="polite"></p>
+          <div class="review-card-grid" id="site-reviews-list"></div>
+          <form class="site-review-form" id="site-review-form">
+            <h4>Conte como foi sua experiência</h4>
+            <label for="review-name">Nome</label>
+            <input id="review-name" name="name" type="text" maxlength="80" required>
+            <fieldset class="rating-picker">
+              <legend>Sua avaliação</legend>
+              <div>
+                <input id="rating-5" type="radio" name="rating" value="5"><label for="rating-5">5 estrelas</label>
+                <input id="rating-4" type="radio" name="rating" value="4"><label for="rating-4">4 estrelas</label>
+                <input id="rating-3" type="radio" name="rating" value="3"><label for="rating-3">3 estrelas</label>
+                <input id="rating-2" type="radio" name="rating" value="2"><label for="rating-2">2 estrelas</label>
+                <input id="rating-1" type="radio" name="rating" value="1" required><label for="rating-1">1 estrela</label>
+              </div>
+            </fieldset>
+            <label for="review-comment">Comentário (opcional)</label>
+            <textarea id="review-comment" name="comment" rows="5" maxlength="2000"></textarea>
+            <p class="site-review-help">Você poderá excluir sua avaliação neste navegador. Se limpar os dados do navegador ou mudar de aparelho, perderá essa possibilidade.</p>
+            <button type="submit">Enviar avaliação</button>
+            <p class="site-review-form-status" id="site-review-form-status" role="status" aria-live="polite"></p>
+          </form>
+        </section>
         <a class="section-home-link" href="#home">Voltar ao início</a>
       </div>
     </section>
@@ -250,5 +312,7 @@
     <p class="detail-note">Os nomes V3/V4/V5 e V8/V10 são usados para combinações que podem variar por fabricante. O veterinário confirma os componentes, indica as vacinas apropriadas e define os reforços para cada animal.</p>
   </template>
   <script src="js/main.js" defer></script>
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2" defer></script>
+  <script src="js/site-reviews.js" defer></script>
 </body>
 </html>

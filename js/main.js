@@ -2,6 +2,27 @@ const serviceDialog = document.querySelector("#service-dialog");
 const dialogTitle = document.querySelector("#dialog-title");
 const dialogContent = document.querySelector("#dialog-content");
 const closeDialogButton = document.querySelector(".dialog-close");
+const navigationMenu = document.querySelector(".topbar-menu");
+const navigationToggle = document.querySelector(".topbar-toggle");
+
+navigationMenu.addEventListener("click", (event) => {
+  if (event.target.closest("a")) {
+    navigationMenu.open = false;
+  }
+});
+
+document.addEventListener("click", (event) => {
+  if (navigationMenu.open && !navigationMenu.contains(event.target)) {
+    navigationMenu.open = false;
+  }
+});
+
+document.addEventListener("keydown", (event) => {
+  if (event.key === "Escape" && navigationMenu.open) {
+    navigationMenu.open = false;
+    navigationToggle.focus();
+  }
+});
 
 const serviceDetails = {
   "home-care": {
@@ -146,16 +167,6 @@ if (reviewSources.length === 0 || reviewSources.some(({ rating, count }) => (
 ))) {
   throw new Error("Os dados de nota e quantidade das avaliações externas são inválidos.");
 }
-
-const externalReviewCount = reviewSources.reduce((total, source) => total + source.count, 0);
-const externalRating = reviewSources.reduce((total, source) => total + source.rating * source.count, 0) / externalReviewCount;
-const roundedExternalRating = Math.round(externalRating * 10) / 10;
-
-document.querySelector("#combined-rating").textContent = roundedExternalRating.toLocaleString("pt-BR", {
-  minimumFractionDigits: 1,
-  maximumFractionDigits: 1
-});
-document.querySelector("#combined-review-count").textContent = externalReviewCount.toLocaleString("pt-BR");
 
 reviewSources.forEach(({ platform, rating, count }) => {
   platform.querySelector(".source-rating").textContent = `${rating.toLocaleString("pt-BR", {

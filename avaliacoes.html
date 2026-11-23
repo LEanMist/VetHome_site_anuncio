@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f8d5d4">
+  <title>Avaliações | Vet Home</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@700&family=Montserrat+Alternates:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="all-reviews-page">
+  <main>
+    <section class="content-section reviews-section" aria-labelledby="all-reviews-title">
+      <div class="content-inner reviews-inner">
+        <p class="eyebrow">VET HOME</p>
+        <h2 id="all-reviews-title">Avaliações do nosso site</h2>
+        <p class="section-description">Veja as experiências compartilhadas pelos tutores.</p>
+        <p id="site-reviews-score">Carregando avaliações...</p>
+        <p class="site-reviews-status" id="site-reviews-status" role="status" aria-live="polite"></p>
+        <div class="review-card-grid" id="site-reviews-list" data-all-reviews></div>
+        <button class="review-platform-link site-reviews-more" id="site-reviews-more" type="button" hidden>Carregar mais avaliações</button>
+        <a class="section-home-link" href="index.html#reviews">Voltar às avaliações</a>
+      </div>
+    </section>
+    <section class="review-invitation" aria-labelledby="review-invitation-title">
+      <img src="images/banner-avaliacoes.png" alt="">
+      <div class="review-invitation-content">
+        <h2 id="review-invitation-title">Avalie nosso trabalho</h2>
+        <p>Sua experiência é importante para nós. Conte como foi o cuidado com seu pet!</p>
+        <a class="review-invitation-link" href="index.html#site-review-form">Deixar minha avaliação</a>
+      </div>
+    </section>
+  </main>
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2" defer></script>
+  <script src="js/site-reviews.js" defer></script>
+</body>
+</html>
